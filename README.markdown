@@ -1,16 +1,17 @@
 # STS
 
-Sight to sound
+## Sight to sound
 
-Use:
+## Use:
 Import any grayscale image and let the program convert it to a sound for you
 
-Dependencies:
+## Dependencies:
 Python 3.4 + inbuilt librarier
 Tkinter
 PIL
 Winsound (if not inbuilt)
 
-Installation:
-Currently there is no setup.py (Will be added later)
-'test'
+## Installation:
+### Currently there is no setup.py (Will be added later)
+### to install please choose one of these:
+use the i
