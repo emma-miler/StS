@@ -16,6 +16,6 @@ Winsound (if not inbuilt)
 #### to install please choose one of these:
 use the installer: [Installer](https://github.com/DaanVink/StS/releases)  
 
-download compiled version directly: [Compiled](https://github.com/DaanVink/StS/tree/test)  
+download compiled version directly: [Compiled](https://github.com/DaanVink/StS/tree/compiled)  
 
 download source-code: [Source](https://github.com/DaanVink/StS/tree/master)  
