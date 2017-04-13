@@ -14,6 +14,8 @@ Winsound (if not inbuilt)
 ## Installation:
 #### Currently there is no setup.py (Will be added later)
 #### to install please choose one of these:
-use the installer: [Installer](https://github.com/DaanVink/StS/releases)
-download compiled version directly: [Compiled](https://github.com/DaanVink/StS/branch/test)
-download source-code: [Source](https://github.com/DaanVink/StS/branch/master)
+use the installer: [Installer](https://github.com/DaanVink/StS/releases)  
+
+download compiled version directly: [Compiled](https://github.com/DaanVink/StS/tree/test)  
+
+download source-code: [Source](https://github.com/DaanVink/StS/tree/master)  
