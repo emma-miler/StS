@@ -6,10 +6,14 @@
 Import any grayscale image and let the program convert it to a sound for you
 
 ## Dependencies:
-Python 3.4 + inbuilt librarier
+Python 3.4 + inbuilt libraries
+
 Tkinter
+
 PIL
+
 Winsound (if not inbuilt)
+
 
 ## Installation:
 #### Currently there is no setup.py (Will be added later)
