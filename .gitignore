@@ -1,2 +1,2 @@
-README.md
-.gitignore
+*.md
+*.gitignore
