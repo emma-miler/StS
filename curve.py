@@ -1,18 +1,18 @@
 #importing libraries
 import sound  #own
-import time
-import os
-import turtle
-import sys
+import time  #in
+import os  #in
+import turtle  #in
+import sys  #in
 import tkinter
-import math
+import math  #in
 import PIL.Image
 import filemanager  #own
 
 #starting timer
 start = time.time()
 
-turtle.tracer(0, 0)
+#turtle.tracer(0, 0)
 
 #input values
 # noinspection PyShadowingBuiltins,PyPep8Naming
@@ -66,9 +66,12 @@ class values:
 #turtle setup
 turtle.setup(input.screensize * 2, input.screensize * 2 + 16)
 turtle.screensize(input.screensize * 2 - 25, input.screensize * 2 - 50)
-turtle.setx(-input.screensize + 5)
-turtle.sety(-input.screensize + 5)
+turtle.setx(input.screensize - 5)
+turtle.sety(input.screensize - 5)
 values.bwlist.append(bwget[int(-turtle.xcor()) + input.screensize, int(turtle.ycor()) + input.screensize])
+turtle.color("blue")
+turtle.tracer(1, 0)
+turtle.speed(0)
 
 #defining functions
 def a1(angle):
@@ -94,7 +97,7 @@ def hilbert2(step, rule, angle, depth):
         b = lambda: hilbert2(step, "b", angle, depth - 1)
         left = lambda: a1(angle)
         right = lambda: a2(angle)
-        forward = lambda: a3(step)
+        forward = lambda: a3(-step)
         if rule == "a":
             left()
             b()
@@ -127,6 +130,7 @@ for x in range(0, len(values.bwlist)):
     values.raw_pitch.append(100 / len(values.bwlist) * x)
     values.volume.append(((5000 / 100) * values.bwlist[x]) + 37)
     if not max(values.bwlist) == 0:
+      # noinspection PyTypeChecker
       values.pitch.append(int(((int(((5000 / 100) * values.maxpitch)) / 255) * (255 - (100 / max(values.bwlist)) * abs((values.bwlist[x] - max(values.bwlist)))))))
     else:
         values.pitch.append(int(((int(((5000 / 100) * values.maxpitch)) / 255) * (255 - 255) * abs((values.bwlist[x] - max(values.bwlist))))))
