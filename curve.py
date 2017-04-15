@@ -12,7 +12,7 @@ import filemanager  #own
 #starting timer
 start = time.time()
 
-#turtle.tracer(0, 0)
+turtle.tracer(0, 0)
 
 #input values
 # noinspection PyShadowingBuiltins,PyPep8Naming
@@ -69,9 +69,6 @@ turtle.screensize(input.screensize * 2 - 25, input.screensize * 2 - 50)
 turtle.setx(input.screensize - 5)
 turtle.sety(input.screensize - 5)
 values.bwlist.append(bwget[int(-turtle.xcor()) + input.screensize, int(turtle.ycor()) + input.screensize])
-turtle.color("blue")
-turtle.tracer(1, 0)
-turtle.speed(0)
 
 #defining functions
 def a1(angle):
