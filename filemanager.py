@@ -1,7 +1,7 @@
 #TODO: find a better way to transfer variables between files
 #TODO: clean this up
 
-import os
+import os  #in
 
 def wpitch(x):
     if os.path.isfile("pitch.txt"):
