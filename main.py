@@ -18,17 +18,17 @@ top.protocol("WM_DELETE_WINDOW", master.destroy)
 #defining tkinter functions
 # noinspection PyUnresolvedReferences
 def callback():
-    #if not os.path.isfile(e.get()):
-    #    textabc = tkinter.Text(top, height=1, font="font, 20", width=20)
-    #    textabc.insert(tkinter.INSERT, "File does not exist!")
-    #    textabc.config(state=tkinter.DISABLED, bg="#f0f0f0", bd=0)
-    #    textabc.pack()
-    #else:
-    filemanager.wpitch(s.get() + 1)
-    filemanager.wlength(l.get())
-    filemanager.wpath("C:/Users/Daan Vink/PycharmProjects/hilbert/images/process.gif")
-    top.withdraw()
-    import curve  #next part in script, to keep it readable
+    if not os.path.isfile(e.get()):
+        textabc = tkinter.Text(top, height=1, font="font, 20", width=20)
+        textabc.insert(tkinter.INSERT, "File does not exist!")
+        textabc.config(state=tkinter.DISABLED, bg="#f0f0f0", bd=0)
+        textabc.pack()
+    else:
+      filemanager.wpitch(s.get() + 1)
+      filemanager.wlength(l.get())
+      filemanager.wpath(e.get())
+      top.withdraw()
+      import curve  #next part in script, to keep it readable
 
 #opening startscreen
 b = tkinter.Text(top, height=1, font="font, 50", width=12)
