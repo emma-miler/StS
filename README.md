@@ -15,8 +15,7 @@ PIL
 Winsound (if not inbuilt)
 
 
-## Installation:
-#### Currently there is no setup.py (Will be added later)
+## Installation
 #### to install please choose one of these:
 use the installer: [Installer](https://github.com/DaanVink/StS/releases)  
 
