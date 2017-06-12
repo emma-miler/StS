@@ -8,12 +8,17 @@
 import tkinter
 import os  #in
 import filemanager  #own
+import sys  #in
+import importdata #own
 
 #setting up tkinter
 master = tkinter.Tk()
 master.withdraw()
 top = tkinter.Toplevel(master)
 top.protocol("WM_DELETE_WINDOW", master.destroy)
+
+qdebug = tkinter.IntVar()
+qdebug.set(0)
 
 #defining tkinter functions
 # noinspection PyUnresolvedReferences
@@ -24,11 +29,18 @@ def callback():
         textabc.config(state=tkinter.DISABLED, bg="#f0f0f0", bd=0)
         textabc.pack()
     else:
-      filemanager.wpitch(s.get() + 1)
-      filemanager.wlength(l.get())
-      filemanager.wpath(e.get())
-      top.withdraw()
-      import curve  #next part in script, to keep it readable
+        stsdatacheck = e.get()
+        if ".stsdata" not in stsdatacheck:
+            filemanager.wpitch(s.get() + 1)
+            filemanager.wlength(l.get())
+            filemanager.wpath(e.get())
+            top.withdraw()
+            import curve  # next part in script, to keep it readable
+            if qdebug.get() == 1:
+                curve.write()
+            sys.exit()
+        else:
+           importdata.data(e.get(), l.get())
 
 #opening startscreen
 b = tkinter.Text(top, height=1, font="font, 50", width=12)
@@ -62,5 +74,7 @@ b = tkinter.Text(top, height=1, font="font, 13", width=36)
 b.insert(tkinter.INSERT, "")
 b.config(state=tkinter.DISABLED, bg="#f0f0f0", bd=0)
 b.pack()
+ch = tkinter.Checkbutton(top, text="Debug", font="Font, 15", variable=qdebug)
+ch.pack()
+ch.var = qdebug
 master.mainloop()
-print("test")

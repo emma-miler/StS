@@ -60,3 +60,11 @@ def write(screensize, size, sidelength, end, start, bwlist, raw_pitch, pitch, vo
     f.write("pixel volume")
     f.write(str(volume))
     f.close()
+
+def delete():
+    try:
+        os.remove("pitch.txt")
+        os.remove("length.txt")
+        os.remove("path.txt")
+    except:
+        pass

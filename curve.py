@@ -3,16 +3,14 @@ import sound  #own
 import time  #in
 import os  #in
 import turtle  #in
-import sys  #in
 import tkinter
 import math  #in
 import PIL.Image
 import filemanager  #own
+import export #own
 
 #starting timer
 start = time.time()
-
-turtle.tracer(0, 0)
 
 #input values
 # noinspection PyShadowingBuiltins,PyPep8Naming
@@ -48,8 +46,8 @@ img = PIL.Image.open(str(input.path))
 img2 = img.resize((input.sidelength * 20, input.sidelength * 20), PIL.Image.ANTIALIAS)
 dir_path = os.getcwd()
 dir_path = dir_path.replace("\\\\", "/")
-img2.save(str(dir_path) + "/test.gif")
-img2 = PIL.Image.open(str(dir_path) + "/test.gif")
+img2.save(str(dir_path) + "/temp.gif")
+img2 = PIL.Image.open(str(dir_path) + "/temp.gif")
 bwget = img2.load()
 
 #other values
@@ -64,6 +62,7 @@ class values:
     maxpitch = int(input.maxpitch1)
 
 #turtle setup
+turtle.tracer(0, 0)
 turtle.setup(input.screensize * 2, input.screensize * 2 + 16)
 turtle.screensize(input.screensize * 2 - 25, input.screensize * 2 - 50)
 turtle.setx(input.screensize - 5)
@@ -138,25 +137,44 @@ for x in range(0, len(values.bwlist)):
 end = time.time()
 
 #writing debug
-filemanager.write(input.screensize, input.size, input.sidelength, end, start,
+def write():
+    filemanager.write(input.screensize, input.size, input.sidelength, end, start,
                   values.bwlist, values.raw_pitch, values.pitch, values.volume)
 
 #done message
 turtle.bye()
 root = tkinter.Tk()
+
+def exportmain():
+    export.export(values.pitch)
+    b = tkinter.Text(root, height=1, font="font, 20", width=34)
+    b.insert(tkinter.INSERT, "Your file was succesfully exported")
+    b.config(state=tkinter.DISABLED, bg="#f0f0f0", bd=0)
+    b.pack()
+    b = tkinter.Text(root, height=1, font="font, 15", width=63)
+    b.insert(tkinter.INSERT, "It should be located under in the exports folder of the program")
+    b.config(state=tkinter.DISABLED, bg="#f0f0f0", bd=0)
+    b.pack()
+    b = tkinter.Text(root, height=1, font="font, 15", width=41)
+    b.insert(tkinter.INSERT, "This is usually C:/Program Files(x86)/StS")
+    b.config(state=tkinter.DISABLED, bg="#f0f0f0", bd=0)
+    b.pack()
+
 def quit1():
     root.destroy()
     root.quit()
+img2.close()
 b = tkinter.Text(root, height=1, font="font, 25", width=19)
 b.insert(tkinter.INSERT, "Your file was converted")
 b.config(state=tkinter.DISABLED, bg="#f0f0f0", bd=0)
 b.pack()
 b = tkinter.Button(root, text="Play", command=quit1, font="font, 25")
 b.pack()
+b = tkinter.Button(root, text="Export", command=exportmain, font="font, 25")
+b.pack()
 tkinter.mainloop()
 
 #playing sound
 for x in range(0, len(values.bwlist)):
     sound.play(int(values.pitch[x]), int(input.maxlen))
-
-sys.exit()
+filemanager.delete()
